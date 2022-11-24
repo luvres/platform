@@ -1,0 +1,92 @@
+# Enable HA mode
+enableHA: true
+replicas: 2
+vcluster:
+  env:
+  - name: K3S_DATASTORE_ENDPOINT
+#    value: postgres://username:password@hostname:port/database-name
+    value: postgres://vcexacta:vcexacta@ExACTa@puc-rio.eu.org:5432/vc_exacta?sslmode=disable
+coredns:
+  replicas: 2
+
+storage:
+  persistence: false
+
+rbac:
+  clusterRole:
+    create: true
+  role:
+    extended: true
+
+sync:
+  nodes:
+    enabled: true
+    nodeSelector: "vcluster=exacta"
+  ingresses:
+    enabled: true
+#  storageclasses:
+#    enabled: true
+#  persistentvolumes:
+#    enabled: true
+#  legacy-storageclasses:
+#    enabled: true
+
+syncer:
+  extraArgs:
+  - --name=vcluster-exacta
+  - --tls-san=exacta.puc-rio.eu.org
+#  - --disable-sync-resources=ingresses
+#  - --fake-nodes=false
+#  - --sync-all-nodes
+#  - --node-selector=vcluster=exacta
+#  - --enforce-node-selector
+#  - --fake-persistent-volumes=false
+#  - --sync=storageclasses,persistentvolumes
+
+init:
+  helm:
+  # public chart
+  - chart:
+      name: cert-manager
+      repo: https://charts.jetstack.io
+      version: v1.10.1
+    # optional field
+    values: |-
+      installCRDs: true
+    release:
+      name: cert-manager
+      namespace: cert-manager
+  - chart:
+      name: kong
+      repo: https://charts.konghq.com
+#      version: 3.0
+    # optional field
+    values: |-
+      ingressController:
+        installCRDs: false
+      proxy:
+        type: NodePort
+        http:
+          nodePort: 30081
+        tls:
+          nodePort: 30444
+    release:
+      name: kong
+      namespace: kong
+
+#mapServices:
+#  fromVirtual:
+#  - from: nginx/nginx-service
+#    to: nginx-service
+#  - from: smartfrete/smartfreight-authserver-service
+#    to: smartfreight-authserver-service
+#  - from: smartfrete/smartfreight-calculator-service
+#    to: smartfreight-calculator-service
+#  - from: smartfrete/smartfreight-historic-service
+#    to: smartfreight-historic-service
+#  - from: smartfrete/smartfreight-railway-service
+#    to: smartfreight-railway-service
+#  - from: smartfrete/smartfreight-duct-service
+#    to: smartfreight-duct-service
+#  - from: smartfrete/smartfreight-react-service
+#    to: smartfreight-react-service
