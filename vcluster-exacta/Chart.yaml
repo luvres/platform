@@ -1,4 +1,0 @@
-apiVersion: v1
-description: VClusters environments
-name: vcluster
-version: "0.0.0-1"
