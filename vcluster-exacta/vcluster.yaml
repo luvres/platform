@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: vclusters
+  project: default
   source:
     path: .
     repoURL: https://github.com/luvres/vcluster.git
