@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    path: vcluster-exacta
+    path: .
     repoURL: https://github.com/luvres/vcluster.git
     targetRevision: HEAD
 #    helm:
