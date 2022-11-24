@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vcluster
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/luvres/vcluster.git
+    targetRevision: HEAD
+#    path: apps/foo-bar
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vcluster
+  syncPolicy:
+#    syncOptions:
+#      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
