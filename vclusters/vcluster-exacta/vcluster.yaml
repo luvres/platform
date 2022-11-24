@@ -16,7 +16,7 @@ spec:
       - values.yaml
   destination:
     server: https://puc-rio.eu.org:6443
-    namespace: vcluster-exacta
+    namespace: vclusters/vcluster-exacta
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
