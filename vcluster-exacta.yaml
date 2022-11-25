@@ -76,7 +76,6 @@ spec:
             kind: ClusterIssuer
             metadata:
               name: letsencrypt-prod
-              namespace: cert-manager
             spec:
               acme:
                 email: luvres@hotmail.com #please change this
