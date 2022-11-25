@@ -8,8 +8,9 @@ metadata:
 spec:
   project: default
   source:
-#    path: vcluster-exacta
 #    repoURL: https://github.com/luvres/vcluster.git
+#    path: vcluster-exacta
+#    targetRevision: #HEAD
     repoURL: https://charts.loft.sh
     targetRevision: "0.13.0" #HEAD
     chart: vcluster
@@ -23,7 +24,6 @@ spec:
         vcluster:
           env:
           - name: K3S_DATASTORE_ENDPOINT
-        #    value: postgres://username:password@hostname:port/database-name
             value: postgres://vcexacta:vcexacta@ExACTa@puc-rio.eu.org:5432/vc_exacta?sslmode=disable
         coredns:
           replicas: 2
@@ -40,23 +40,10 @@ spec:
             nodeSelector: "vcluster=exacta"
           ingresses:
             enabled: true
-        #  storageclasses:
-        #    enabled: true
-        #  persistentvolumes:
-        #    enabled: true
-        #  legacy-storageclasses:
-        #    enabled: true
         syncer:
           extraArgs:
           - --name=vcluster-exacta
           - --tls-san=exacta.puc-rio.eu.org
-        #  - --disable-sync-resources=ingresses
-        #  - --fake-nodes=false
-        #  - --sync-all-nodes
-        #  - --node-selector=vcluster=exacta
-        #  - --enforce-node-selector
-        #  - --fake-persistent-volumes=false
-        #  - --sync=storageclasses,persistentvolumes
         init:
           helm:
           # public chart
@@ -64,7 +51,6 @@ spec:
               name: cert-manager
               repo: https://charts.jetstack.io
               version: v1.10.1
-            # optional field
             values: |-
               installCRDs: true
             release:
@@ -73,7 +59,6 @@ spec:
           - chart:
               name: kong
               repo: https://charts.konghq.com
-        #      version: 3.0
             # optional field
             values: |-
               ingressController:
