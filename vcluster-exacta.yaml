@@ -83,3 +83,27 @@ spec:
     automated:
       selfHeal: true
       prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vcluster-exacta
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/luvres/vcluster.git
+    path: vcluster-exacta
+    targetRevision: #HEAD
+  destination:
+    namespace: vcluster-exacta
+    name: default
+#    server: https://puc-rio.eu.org:6443
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
