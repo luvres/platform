@@ -1,88 +1,3 @@
-#apiVersion: argoproj.io/v1alpha1
-#kind: Application
-#metadata:
-#  name: vcluster-exacta
-#  namespace: argocd
-#  finalizers:
-#  - resources-finalizer.argocd.argoproj.io
-#spec:
-#  project: default
-#  source:
-##    repoURL: https://github.com/luvres/vcluster.git
-##    path: vcluster-exacta
-##    targetRevision: HEAD
-#    repoURL: https://charts.loft.sh
-#    targetRevision: "0.13.0"
-#    chart: vcluster
-#    helm:
-##      valueFiles:
-##      - values.yaml
-#      values: |
-#        enableHA: true
-#        replicas: 2
-#        vcluster:
-#          env:
-#          - name: K3S_DATASTORE_ENDPOINT
-#            value: postgres://vcexacta:vcexacta@ExACTa@puc-rio.eu.org:5432/vc_exacta?sslmode=disable
-#        coredns:
-#          replicas: 2
-#        storage:
-#          persistence: false
-#        rbac:
-#          clusterRole:
-#            create: true
-#          role:
-#            extended: true
-#        sync:
-#          nodes:
-#            enabled: true
-#            nodeSelector: "vcluster=exacta"
-#          ingresses:
-#            enabled: true
-#        syncer:
-#          extraArgs:
-#          - --name=vcluster-exacta
-#          - --tls-san=exacta.puc-rio.eu.org
-#        init:
-#          helm:
-#          # public chart
-#          - chart:
-#              name: cert-manager
-#              repo: https://charts.jetstack.io
-#              version: v1.10.1
-#            values: |-
-#              installCRDs: true
-#            release:
-#              name: cert-manager
-#              namespace: cert-manager
-#          - chart:
-#              name: kong
-#              repo: https://charts.konghq.com
-#            # optional field
-#            values: |-
-#              ingressController:
-#                installCRDs: false
-#              proxy:
-#                type: NodePort
-#                http:
-#                  nodePort: 30081
-#                tls:
-#                  nodePort: 30444
-#            release:
-#              name: kong
-#              namespace: kong
-
-#  destination:
-#    namespace: vcluster-exacta
-#    name: default
-##    server: https://puc-rio.eu.org:6443
-#  syncPolicy:
-#    syncOptions:
-#    - CreateNamespace=true
-#    automated:
-#      selfHeal: true
-#      prune: true
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -93,12 +8,70 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/luvres/vcluster.git
-    path: vcluster-exacta
-    targetRevision: HEAD
+#    repoURL: https://github.com/luvres/vcluster.git
+#    path: vcluster-exacta
+#    targetRevision: HEAD
+    repoURL: https://charts.loft.sh
+    targetRevision: "0.13.0"
+    chart: vcluster
     helm:
-      valueFiles:
-      - values/values.yaml
+#      valueFiles:
+#      - values.yaml
+      values: |
+        enableHA: true
+        replicas: 2
+        vcluster:
+          env:
+          - name: K3S_DATASTORE_ENDPOINT
+            value: postgres://vcexacta:vcexacta@ExACTa@puc-rio.eu.org:5432/vc_exacta?sslmode=disable
+        coredns:
+          replicas: 2
+        storage:
+          persistence: false
+        rbac:
+          clusterRole:
+            create: true
+          role:
+            extended: true
+        sync:
+          nodes:
+            enabled: true
+            nodeSelector: "vcluster=exacta"
+          ingresses:
+            enabled: true
+        syncer:
+          extraArgs:
+          - --name=vcluster-exacta
+          - --tls-san=exacta.puc-rio.eu.org
+        init:
+          helm:
+          # public chart
+          - chart:
+              name: cert-manager
+              repo: https://charts.jetstack.io
+              version: v1.10.1
+            values: |-
+              installCRDs: true
+            release:
+              name: cert-manager
+              namespace: cert-manager
+          - chart:
+              name: kong
+              repo: https://charts.konghq.com
+            # optional field
+            values: |-
+              ingressController:
+                installCRDs: false
+              proxy:
+                type: NodePort
+                http:
+                  nodePort: 30081
+                tls:
+                  nodePort: 30444
+            release:
+              name: kong
+              namespace: kong
+
   destination:
     namespace: vcluster-exacta
     name: default
@@ -109,3 +82,27 @@ spec:
     automated:
       selfHeal: true
       prune: true
+---
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: vcluster-exacta-ingress
+#  namespace: argocd
+#  finalizers:
+#  - resources-finalizer.argocd.argoproj.io
+#spec:
+#  project: default
+#  source:
+#    repoURL: https://github.com/luvres/vcluster.git
+#    path: vcluster-exacta
+#    targetRevision: HEAD
+#  destination:
+#    namespace: vcluster-exacta
+#    name: default
+##    server: https://puc-rio.eu.org:6443
+#  syncPolicy:
+#    syncOptions:
+#    - CreateNamespace=true
+#    automated:
+#      selfHeal: true
+#      prune: true
