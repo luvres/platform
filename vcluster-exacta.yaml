@@ -15,7 +15,7 @@ spec:
     chart: vcluster
     helm:
       valueFiles:
-      - values.yaml
+      - vcluster-exacta/values.yaml
   destination:
     namespace: vcluster-exacta
     name: default
