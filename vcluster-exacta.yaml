@@ -72,20 +72,21 @@ spec:
               name: kong
               namespace: kong
           manifests: |-
-            apiVersion: v1
-            kind: Service
+            apiVersion: cert-manager.io/v1
+            kind: ClusterIssuer
             metadata:
-              name: nginx-service
-            #  namespace: nginx
+              name: letsencrypt-prod
+              namespace: cert-manager
             spec:
-              type: ClusterIP
-              selector:
-                app: nginx
-              ports:
-              - protocol: TCP
-                name: http-nginx
-                port: 8080
-                targetPort: 80
+              acme:
+                email: luvres@hotmail.com #please change this
+                privateKeySecretRef:
+                  name: letsencrypt-prod
+                server: https://acme-v02.api.letsencrypt.org/directory
+                solvers:
+                - http01:
+                    ingress:
+                      class: kong
 
   destination:
     namespace: vcluster-exacta
