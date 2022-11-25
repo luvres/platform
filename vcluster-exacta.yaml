@@ -96,7 +96,7 @@ spec:
   source:
     repoURL: https://github.com/luvres/vcluster.git
     path: vcluster-exacta
-    targetRevision: #HEAD
+    targetRevision: HEAD
   destination:
     namespace: vcluster-exacta
     name: default
