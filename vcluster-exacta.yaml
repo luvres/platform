@@ -8,10 +8,9 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://github.com/luvres/vcluster.git
-    path: vcluster-exacta
-    targetRevision: HEAD
-  - repoURL: https://charts.loft.sh
+#    path: vcluster-exacta
+#    repoURL: https://github.com/luvres/vcluster.git
+    repoURL: https://charts.loft.sh
     targetRevision: "0.13.0" #HEAD
     chart: vcluster
     helm:
