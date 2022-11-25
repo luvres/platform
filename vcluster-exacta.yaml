@@ -11,9 +11,9 @@ spec:
     path: vcluster-exacta
     repoURL: https://github.com/luvres/vcluster.git
     targetRevision: HEAD
-    helm:
-      valueFiles:
-      - values.yaml
+#    helm:
+#      valueFiles:
+#      - values.yaml
   destination:
     namespace: vcluster-exacta
     name: default
