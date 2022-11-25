@@ -12,7 +12,7 @@ spec:
 #    path: vcluster-exacta
 #    targetRevision: #HEAD
     repoURL: https://charts.loft.sh
-    targetRevision: "0.13.0" #HEAD
+    targetRevision: "0.13.0"
     chart: vcluster
     helm:
 #      valueFiles:
