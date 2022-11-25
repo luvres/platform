@@ -9,11 +9,12 @@ spec:
   project: default
   source:
     path: vcluster-exacta
-    repoURL: https://github.com/luvres/vcluster.git
+#    repoURL: https://github.com/luvres/vcluster.git
+    repoURL: https://charts.loft.sh
     targetRevision: HEAD
     helm:
       valueFiles:
-      - values/values.yaml
+      - values.yaml
   destination:
     namespace: vcluster-exacta
     name: default
