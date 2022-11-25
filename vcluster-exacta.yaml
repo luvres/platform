@@ -12,6 +12,7 @@ spec:
 #    repoURL: https://github.com/luvres/vcluster.git
     repoURL: https://charts.loft.sh
     targetRevision: HEAD
+    chart: vcluster
     helm:
       valueFiles:
       - values.yaml
