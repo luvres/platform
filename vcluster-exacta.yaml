@@ -87,7 +87,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vcluster-exacta
+  name: vcluster-exacta-ingress
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
