@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  sources:
+  source:
 #    path: vcluster-exacta
 #    repoURL: https://github.com/luvres/vcluster.git
     repoURL: https://charts.loft.sh
