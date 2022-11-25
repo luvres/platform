@@ -7,9 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  sources:
-#    path: vcluster-exacta
-#    repoURL: https://github.com/luvres/vcluster.git
+  source:
     repoURL: https://charts.loft.sh
     targetRevision: "0.13.0" #HEAD
     chart: vcluster
@@ -87,6 +85,10 @@ spec:
             release:
               name: kong
               namespace: kong
+  sources:
+    path: vcluster-exacta
+    repoURL: https://github.com/luvres/vcluster.git
+    targetRevision: HEAD
 
   destination:
     namespace: vcluster-exacta
