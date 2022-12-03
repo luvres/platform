@@ -65,11 +65,11 @@ spec:
               ingressController:
                 installCRDs: false
               proxy:
-                type: NodePort
                 http:
                   nodePort: 30081
                 tls:
                   nodePort: 30444
+                type: NodePort
             release:
               name: kong
               namespace: kong
