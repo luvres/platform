@@ -39,6 +39,8 @@ spec:
             nodeSelector: "vcluster=exacta"
           ingresses:
             enabled: true
+          hoststorageclasses:
+            enabled: true
         syncer:
           extraArgs:
           - --name=vcluster-exacta
