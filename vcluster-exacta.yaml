@@ -53,8 +53,6 @@ spec:
               repo: https://charts.konghq.com
             # optional field
             values: |-
-              ingressController:
-                installCRDs: false
               proxy:
                 type: NodePort
                 http:
