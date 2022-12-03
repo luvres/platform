@@ -111,7 +111,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/luvres/vcluster.git
+    repoURL: https://github.com/luvres/vcluster/ingress.git
     path: vcluster-exacta
     targetRevision: HEAD
   destination:
