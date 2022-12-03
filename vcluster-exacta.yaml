@@ -112,7 +112,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/luvres/vcluster.git
-    path: vcluster-exacta
+    path: ingress
     targetRevision: HEAD
   destination:
     namespace: vcluster-exacta
