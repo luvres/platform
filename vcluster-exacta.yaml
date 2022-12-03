@@ -49,15 +49,6 @@ spec:
           helm:
           # public chart
           - chart:
-              name: cert-manager
-              repo: https://charts.jetstack.io
-              version: v1.10.1
-            values: |-
-              installCRDs: true
-            release:
-              name: cert-manager
-              namespace: cert-manager
-          - chart:
               name: kong
               repo: https://charts.konghq.com
             # optional field
@@ -73,6 +64,15 @@ spec:
             release:
               name: kong
               namespace: kong
+          - chart:
+              name: cert-manager
+              repo: https://charts.jetstack.io
+              version: v1.10.1
+            values: |-
+              installCRDs: true
+            release:
+              name: cert-manager
+              namespace: cert-manager
 #          manifests: |-
 #            apiVersion: cert-manager.io/v1
 #            kind: ClusterIssuer
