@@ -47,21 +47,6 @@ spec:
           - --tls-san=exacta.puc-rio.eu.org
         init:
           helm:
-          # Ingress
-          - chart:
-              name: kong
-              repo: https://charts.konghq.com
-            # optional field
-            values: |-
-              proxy:
-                type: NodePort
-                http:
-                  nodePort: "30081"
-                tls:
-                  nodePort: "30444"
-            release:
-              name: kong
-              namespace: kong
           # cert-manager
           - chart:
               name: cert-manager
@@ -72,6 +57,21 @@ spec:
             release:
               name: cert-manager
               namespace: cert-manager
+          # Ingress
+          - chart:
+              name: kong
+              repo: https://charts.konghq.com
+            # optional field
+            values: |-
+              proxy:
+                type: NodePort
+                http:
+                  nodePort: 30081
+                tls:
+                  nodePort: 30444
+            release:
+              name: kong
+              namespace: kong
 #          manifests: |-
 #            apiVersion: cert-manager.io/v1
 #            kind: ClusterIssuer
