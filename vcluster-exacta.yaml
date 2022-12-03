@@ -65,7 +65,7 @@ spec:
               ingressController:
                 installCRDs: false
               proxy:
-                type: NodePort
+                type: LoadBalancer
                 http:
                   nodePort: 30081
                 tls:
