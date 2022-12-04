@@ -56,20 +56,20 @@ spec:
             release:
               name: cert-manager
               namespace: cert-manager
-          - chart:
-              name: kong
-              repo: https://charts.konghq.com
-            # optional field
-            values: |-
-              proxy:
-                type: NodePort
-                http:
-                  nodePort: 30081
-                tls:
-                  nodePort: 30444
-            release:
-              name: kong
-              namespace: kong
+#          - chart:
+#              name: kong
+#              repo: https://charts.konghq.com
+#            # optional field
+#            values: |-
+#              proxy:
+#                type: NodePort
+#                http:
+#                  nodePort: 30081
+#                tls:
+#                  nodePort: 30444
+#            release:
+#              name: kong
+#              namespace: kong
 #          manifests: |-
 #            apiVersion: cert-manager.io/v1
 #            kind: ClusterIssuer
