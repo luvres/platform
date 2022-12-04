@@ -47,7 +47,6 @@ spec:
           - --tls-san=exacta.puc-rio.eu.org
         init:
           helm:
-          # cert-manager
           - chart:
               name: cert-manager
               repo: https://charts.jetstack.io
@@ -57,7 +56,6 @@ spec:
             release:
               name: cert-manager
               namespace: cert-manager
-          # Ingress
           - chart:
               name: kong
               repo: https://charts.konghq.com
