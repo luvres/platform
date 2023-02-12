@@ -7,11 +7,11 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  sources:
-    repoURL: https://github.com/luvres/vcluster.git
+  source:
+#    repoURL: https://github.com/luvres/vcluster.git
 #    path: vcluster-exacta
-    path: ingress
-    targetRevision: HEAD
+#    path: ingress
+#    targetRevision: HEAD
     repoURL: https://charts.loft.sh
     targetRevision: "0.14.0"
     chart: vcluster
@@ -99,26 +99,26 @@ spec:
       selfHeal: true
       prune: true
 ---
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: vcluster-exacta-ingress
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/luvres/vcluster.git
-    path: ingress
-    targetRevision: HEAD
-  destination:
-    namespace: vcluster-exacta
-    name: default
-#    server: https://puc-rio.eu.org:6443
-  syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: vcluster-exacta-ingress
+#  namespace: argocd
+#  finalizers:
+#  - resources-finalizer.argocd.argoproj.io
+#spec:
+#  project: default
+#  source:
+#    repoURL: https://github.com/luvres/vcluster.git
+#    path: ingress
+#    targetRevision: HEAD
+#  destination:
+#    namespace: vcluster-exacta
+#    name: default
+##    server: https://puc-rio.eu.org:6443
+#  syncPolicy:
+#    syncOptions:
+#    - CreateNamespace=true
+#    automated:
+#      selfHeal: true
+#      prune: true
