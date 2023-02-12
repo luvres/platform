@@ -8,11 +8,12 @@ metadata:
 spec:
   project: default
   source:
-#    repoURL: https://github.com/luvres/vcluster.git
+    repoURL: https://github.com/luvres/vcluster.git
 #    path: vcluster-exacta
-#    targetRevision: HEAD
+    path: ingress
+    targetRevision: HEAD
     repoURL: https://charts.loft.sh
-    targetRevision: "0.13.0"
+    targetRevision: "0.14.0"
     chart: vcluster
     helm:
 #      valueFiles:
