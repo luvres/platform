@@ -90,7 +90,7 @@ spec:
     
   destination:
     namespace: vcluster-exacta
-    name: default
+    name: puc-rio
 #    server: https://puc-rio.eu.org:6443
   syncPolicy:
     syncOptions:
