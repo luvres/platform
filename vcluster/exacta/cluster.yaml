@@ -85,7 +85,7 @@ spec:
 #                      class: kong
   - repoURL: https://github.com/luvres/platform.git
 #    path: vcluster-exacta
-    path: vcluster/ingress
+    path: vcluster/ingress/smartfreight
     targetRevision: HEAD
     
   destination:
