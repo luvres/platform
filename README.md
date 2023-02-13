@@ -12,8 +12,8 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://github.com/luvres/platform/vcluster.git
-    path: exacta
+  - repoURL: https://github.com/luvres/platform.git
+    path: vcluster/exacta
     targetRevision: HEAD
   destination:
     namespace: vclusters
