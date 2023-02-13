@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vcluster-exacta
+  name: vcluster-smartfreight
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -12,15 +12,13 @@ spec:
     targetRevision: "0.14.0"
     chart: vcluster
     helm:
-#      valueFiles:
-#      - values.yaml
       values: |
         enableHA: true
         replicas: 2
         vcluster:
           env:
           - name: K3S_DATASTORE_ENDPOINT
-            value: postgres://vcexacta:vcexacta@ExACTa@puc-rio.eu.org:5432/vc_exacta?sslmode=disable
+            value: postgres://vcsmartfreight:vcsmartfreight@ExACTa@puc-rio.eu.org:5432/vc_smartfreight?sslmode=disable
         coredns:
           replicas: 2
         storage:
@@ -40,19 +38,19 @@ spec:
             enabled: true
         syncer:
           extraArgs:
-          - --name=vcluster-exacta
-          - --tls-san=exacta.puc-rio.eu.org
-        init:
-          helm:
-          - chart:
-              name: cert-manager
-              repo: https://charts.jetstack.io
-              version: v1.10.1
-            values: |-
-              installCRDs: true
-            release:
-              name: cert-manager
-              namespace: cert-manager
+          - --name=vcluster-smartfreight
+          - --tls-san=smartfrete.puc-rio.eu.org
+#        init:
+#          helm:
+#          - chart:
+#              name: cert-manager
+#              repo: https://charts.jetstack.io
+#              version: v1.10.1
+#            values: |-
+#              installCRDs: true
+#            release:
+#              name: cert-manager
+#              namespace: cert-manager
 #          - chart:
 #              name: kong
 #              repo: https://charts.konghq.com
@@ -83,13 +81,12 @@ spec:
 #                - http01:
 #                    ingress:
 #                      class: kong
-  - repoURL: https://github.com/luvres/vcluster.git
-#    path: vcluster-exacta
-    path: ingress
+  - repoURL: https://github.com/luvres/platform.git
+    path: vcluster/ingress/smartfreight
     targetRevision: HEAD
     
   destination:
-    namespace: vcluster-exacta
+    namespace: vcluster-smartfreight
     name: puc-rio
 #    server: https://puc-rio.eu.org:6443
   syncPolicy:

@@ -1,15 +1,15 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: vcluster-ingress-exacta
-  namespace: vcluster-exacta
+  name: vcluster-ingress-smartfreight
+  namespace: vcluster-smartfreight
 spec:
   entryPoints:
     - websecure
   routes:
-  - match: HostSNI(`exacta.puc-rio.eu.org`)
+  - match: HostSNI(`smartfrete.puc-rio.eu.org`)
     services:
-    - name: vcluster-exacta
+    - name: vcluster-smartfreight
       port: 443
   tls:
     passthrough: true
