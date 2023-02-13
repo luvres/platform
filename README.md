@@ -15,6 +15,9 @@ spec:
   - repoURL: https://github.com/luvres/platform.git
     path: vcluster/exacta
     targetRevision: HEAD
+  - repoURL: https://github.com/luvres/platform.git
+    path: vcluster/smartfreight
+    targetRevision: HEAD
   destination:
     namespace: vclusters
     name: in-cluster
