@@ -5,7 +5,7 @@ cat <<EOF | kubectl apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vclusters
+  name: resources
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -13,10 +13,7 @@ spec:
   project: default
   sources:
   - repoURL: https://github.com/luvres/platform.git
-    path: vcluster/exacta
-    targetRevision: HEAD
-  - repoURL: https://github.com/luvres/platform.git
-    path: vcluster/smartfreight
+    path: .
     targetRevision: HEAD
   destination:
     namespace: vclusters
