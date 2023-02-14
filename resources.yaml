@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vclusters
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  sources:
+  # Cluster ExACTA
+  - repoURL: https://github.com/luvres/platform.git
+    path: vcluster/exacta
+    targetRevision: HEAD
+  # Cluster SmartFreight
+  - repoURL: https://github.com/luvres/platform.git
+    path: vcluster/smartfreight
+    targetRevision: HEAD
+    
+  destination:
+    namespace: vclusters
+    name: in-cluster
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
