@@ -7,7 +7,10 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: platform
-#  sources:
+  sources:
+  - repoURL: https://github.com/luvres/platform.git
+    path: empty
+    targetRevision: HEAD
   # Cluster ExACTA
 #  - repoURL: https://github.com/luvres/platform.git
 #    path: vcluster/exacta

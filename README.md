@@ -29,8 +29,7 @@ EOF
 -----
 ```
 .
-├── ingress
-│   └── ingress-exacta.yaml
+├── empty
 ├── README.md
 ├── resources.yaml
 └── vcluster
