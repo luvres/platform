@@ -27,6 +27,7 @@ EOF
 
 ### tree
 -----
+```
 .
 ├── ingress
 │   └── ingress-exacta.yaml
@@ -42,3 +43,5 @@ EOF
     │       └── ingress.yaml
     └── smartfreight
         └── cluster.yaml
+```
+
