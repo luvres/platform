@@ -6,12 +6,12 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: platform
   sources:
   # Cluster ExACTA
-  - repoURL: https://github.com/luvres/platform.git
-    path: vcluster/exacta
-    targetRevision: HEAD
+#  - repoURL: https://github.com/luvres/platform.git
+#    path: vcluster/exacta
+#    targetRevision: HEAD
   # Cluster SmartFreight
   - repoURL: https://github.com/luvres/platform.git
     path: vcluster/smartfreight
