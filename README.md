@@ -24,3 +24,21 @@ spec:
       prune: true
 EOF
 ```
+
+###tree
+-----
+.
+├── ingress
+│   └── ingress-exacta.yaml
+├── README.md
+├── resources.yaml
+└── vcluster
+    ├── exacta
+    │   └── cluster.yaml
+    ├── ingress
+    │   ├── exacta
+    │   │   └── ingress.yaml
+    │   └── smartfreight
+    │       └── ingress.yaml
+    └── smartfreight
+        └── cluster.yaml
