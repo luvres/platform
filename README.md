@@ -5,7 +5,7 @@ cat <<EOF | kubectl apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: resources
+  name: platform
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
