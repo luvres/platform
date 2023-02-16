@@ -42,17 +42,17 @@ spec:
           - --tls-san=smartfrete.puc-rio.eu.org
         mapServices:
           fromVirtual:
-          - from: smartfrete/smartfreight-authserver-service
+          - from: smartfreight/smartfreight-authserver-service
             to: smartfreight-authserver-service
-#          - from: smartfrete/smartfreight-calculator-service
+#          - from: smartfreight/smartfreight-calculator-service
 #            to: smartfreight-calculator-service
-#          - from: smartfrete/smartfreight-historic-service
+#          - from: smartfreight/smartfreight-historic-service
 #            to: smartfreight-historic-service
-#          - from: smartfrete/smartfreight-railway-service
+#          - from: smartfreight/smartfreight-railway-service
 #            to: smartfreight-railway-service
-#          - from: smartfrete/smartfreight-duct-service
+#          - from: smartfreight/smartfreight-duct-service
 #            to: smartfreight-duct-service
-#          - from: smartfrete/smartfreight-react-service
+#          - from: smartfreight/smartfreight-react-service
 #            to: smartfreight-react-service
 #        init:
 #          helm:
