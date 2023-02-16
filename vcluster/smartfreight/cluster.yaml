@@ -40,6 +40,22 @@ spec:
           extraArgs:
           - --name=vcluster-smartfreight
           - --tls-san=smartfrete.puc-rio.eu.org
+        mapServices:
+          fromVirtual:
+          - from: nginx/nginx-service
+            to: nginx-service
+          - from: smartfrete/smartfreight-authserver-service
+            to: smartfreight-authserver-service
+          - from: smartfrete/smartfreight-calculator-service
+            to: smartfreight-calculator-service
+          - from: smartfrete/smartfreight-historic-service
+            to: smartfreight-historic-service
+          - from: smartfrete/smartfreight-railway-service
+            to: smartfreight-railway-service
+          - from: smartfrete/smartfreight-duct-service
+            to: smartfreight-duct-service
+          - from: smartfrete/smartfreight-react-service
+            to: smartfreight-react-service
 #        init:
 #          helm:
 #          - chart:
