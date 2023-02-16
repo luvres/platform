@@ -8,9 +8,9 @@ metadata:
 spec:
   project: platform
   sources:
-  - repoURL: https://github.com/luvres/platform.git
-    path: empty
-    targetRevision: HEAD
+#  - repoURL: https://github.com/luvres/platform.git
+#    path: empty
+#    targetRevision: HEAD
   # Cluster ExACTA
 #  - repoURL: https://github.com/luvres/platform.git
 #    path: vcluster/exacta
