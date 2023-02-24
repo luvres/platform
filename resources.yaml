@@ -11,10 +11,6 @@ spec:
 #  - repoURL: https://github.com/luvres/platform.git
 #    path: empty
 #    targetRevision: HEAD
-  # import Rancher
-  - repoURL: https://github.com/luvres/platform.git
-    path: vcluster/smartfreight/rancher
-    targetRevision: HEAD
   # Cluster ExACTA
 #  - repoURL: https://github.com/luvres/platform.git
 #    path: vcluster/exacta
