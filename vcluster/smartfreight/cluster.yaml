@@ -100,10 +100,10 @@ spec:
   - repoURL: https://github.com/luvres/platform.git
     path: vcluster/ingress/smartfreight
     targetRevision: HEAD
-  # Import Rancher
-  - repoURL: https://github.com/luvres/platform.git
-    path: vcluster/rancher/smartfreight
-    targetRevision: HEAD
+#  # Import Rancher
+#  - repoURL: https://github.com/luvres/platform.git
+#    path: vcluster/rancher/smartfreight
+#    targetRevision: HEAD
     
   destination:
     namespace: vcluster-smartfreight
