@@ -30,9 +30,9 @@ spec:
           role:
             extended: true
         sync:
-        #  nodes:
-        #    enabled: true
-        #    nodeSelector: "vcluster=exacta"
+          nodes:
+            enabled: true
+            nodeSelector: "vcluster=exacta"
           ingresses:
             enabled: true
           hoststorageclasses:
