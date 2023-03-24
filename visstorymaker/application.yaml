@@ -13,7 +13,7 @@ spec:
     targetRevision: HEAD
   destination:
     namespace: visstorymaker
-    name: visstorymaker
+    name: puc-rio
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
