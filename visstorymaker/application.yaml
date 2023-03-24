@@ -9,7 +9,7 @@ spec:
   project: visstorymaker
   sources:
   - repoURL: https://exactapucrio@dev.azure.com/exactapucrio/Petrobras%20-%20Smart%20Frete/_git/gitops
-    path: Visstorymaker
+    path: Visstorymaker-back
     targetRevision: HEAD
   destination:
     namespace: visstorymaker
