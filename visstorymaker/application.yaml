@@ -8,8 +8,13 @@ metadata:
 spec:
   project: visstorymaker
   sources:
+  # Backend
   - repoURL: https://exactapucrio@dev.azure.com/exactapucrio/Petrobras%20-%20Smart%20Frete/_git/gitops
     path: Visstorymaker-back
+    targetRevision: HEAD
+  # Frontend
+  - repoURL: https://exactapucrio@dev.azure.com/exactapucrio/Petrobras%20-%20Smart%20Frete/_git/gitops
+    path: Visstorymaker-front
     targetRevision: HEAD
   destination:
     namespace: visstorymaker
