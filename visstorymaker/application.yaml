@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: platform
+  project: visstorymaker
   sources:
   - repoURL: https://exactapucrio@dev.azure.com/exactapucrio/Petrobras%20-%20Smart%20Frete/_git/gitops
     path: Visstorymaker-back
