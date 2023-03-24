@@ -9,7 +9,7 @@ spec:
   project: platform
   sources:
   - repoURL: https://charts.loft.sh
-    targetRevision: "0.14.1"
+    targetRevision: "0.14.2"
     chart: vcluster
     helm:
       values: |
