@@ -15,6 +15,10 @@ spec:
 #  - repoURL: https://github.com/luvres/platform.git
 #    path: vcluster/exacta
 #    targetRevision: HEAD
+  # Visstorymaker-back
+  - repoURL: https://github.com/luvres/platform.git
+    path: visstorymaker
+    targetRevision: HEAD
   # Cluster SmartFreight
   - repoURL: https://github.com/luvres/platform.git
     path: vcluster/smartfreight
